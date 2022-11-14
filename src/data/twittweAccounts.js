@@ -1,10 +1,10 @@
-import img1 from '../assets/images/logo.png';
+import img1 from '../assets/image/logo.png';
 
-export const twitterAcconutns = [
+export const twitterAccounts = [
 
    {
       image: img1,
-      name: 'name',
+      name: 'Imie Na',
       description: 'description',
       twitterLink: 'link',
 
