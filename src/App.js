@@ -1,9 +1,10 @@
 import React from "react";
-
+import ListWrpapper from "./components/ListWrapper/ListWrapper";
+import './index.css'
 
 const App = () => (
-    <div className="wrpapper">
-        <h1 className="mainHeader">Hesllo</h1>
+    <div>
+        <ListWrpapper/>
     </div>
 );
 
