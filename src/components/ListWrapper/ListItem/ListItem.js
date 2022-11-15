@@ -5,7 +5,7 @@ import img from '../../../assets/image/logo.png'
 const ListItem = (props) =>
 (
    <li className="listItem__wrapper">
-      <img src={img} className="listItem__image" />
+      <img src={img} className="listItem__image" alt="img" />
       <div>
          <h2 className="listItem__name" >{props.name}</h2>
          <p className="listItem__descrition"> {props.description}</p>
