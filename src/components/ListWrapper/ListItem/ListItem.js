@@ -1,6 +1,6 @@
 import React from "react";
-import  PropTypes  from "prop-types";
-import './ListItem.css'
+import PropTypes  from "prop-types";
+import styles from  './ListItem.module.scss'
 
 const ListItem = ({
    name,
@@ -9,12 +9,12 @@ const ListItem = ({
    twitterLink,
 }) =>
 (
-   <li className="listItem__wrapper">
-      <img src={image} className="listItem__image" alt="name" />
+   <li className={styles.wrapper}>
+      <img src={image} className={styles.image} alt="name" />
       <div>
-         <h2 className="listItem__name" >{name}</h2>
-         <p className="listItem__descrition"> {description}</p>
-         <a href="{twitterLink}" target="_blank" className="listItem__button">{twitterLink}</a>
+         <h2 className={styles.name} >{name}</h2>
+         <p className={styles.descrition}> {description}</p>
+         <a href="{twitterLink}" target="_blank" className={styles.button}>twitterLink</a>
       </div>
    </li>
 );

@@ -1,27 +1,43 @@
-.listItem__wrapper {
-   list-style: none ;  
+@keyframes appear {
+  0% {
+    opacity: 0;
+    top: 35px;
+  }
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+
+.wrapper {
    padding: 0;
    margin: 0 0 50px; 
    display: flex;
    align-items: center;
    padding: 50px, 30px;
+   position: relative;
+   animation-name: appear;
+  animation-duration: 2s;
+  animation-iteration-count: ease;
 }
-.listItem__image {
+.image {
   flex-shrink: 0;
   margin-right: 30px;
   height: 150px;
   width: 150px;
   border-radius: 50% ;
 }
-.listItem__name {
+.name {
    color: aqua;
    font-weight: 700;
+   
  }
- .listItem__descrition {
+ .descrition {
   margin: 10px 0 20px;
    font-weight: 300;
  }
- .listItem__button {
+ .button {
   font-size: 10px;
   text-decoration: none;
   padding: 7px 12px;
