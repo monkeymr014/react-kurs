@@ -1,11 +1,19 @@
 import React from "react";
 
 class MyComponent extends React.Component {
-   render () {
+   state = {
+      text: 'test',
+   }
+   handleChange = () => console.log('change');
+   render() {
       return (
-         <h1>hhee</h1>
+         <>
+            <input
+               onChange={this.handleChange}
+            />
+            <h1>{this.state.text}</h1>
+         </>
       )
-
    }
 }
 
