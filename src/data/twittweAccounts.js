@@ -12,7 +12,7 @@ export const twitterAccounts = [
    {
       image: img,
       name: 'name',
-      description: 'description',
+
       twitterLink: 'link',
 
    },
