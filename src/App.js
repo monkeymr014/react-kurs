@@ -1,12 +1,13 @@
 import React from "react";
 import ListWrpapper from "./components/ListWrapper/ListWrapper";
+import Form from "./components/Form/Forms";
 import './index.css'
 import danAbramovImage from './assets/images/danabramov.jpg';
 import ryanFlorenceImage from './assets/images/ryanflorence.jpg';
 import michaelJacksonImage from './assets/images/michaeljackson.jpg';
 import kentCDoddsImage from './assets/images/kentcdodds.jpg';
 
-const initialStateArray = [
+const initialStateItems = [
     {
         image: danAbramovImage,
         name: 'Dan Abramov',
@@ -37,13 +38,22 @@ const initialStateArray = [
 class App extends React.Component {
 
     state = {
-        items: [...initialStateArray],
+        items: [...initialStateItems],
+    }
+
+    addItem = (e)=> {
+        e.preventDefault()
+        console.log(e.target[0].value);
+        console.log(e.target[1].value);
+        console.log(e.target[2].value);
+        console.log(e.target[3].value);
     }
 
     render() {
         return (
             < div >
                 <ListWrpapper items={this.state.items} />
+                <Form submitFn={this.addItem} />
             </div >
         )
     }
