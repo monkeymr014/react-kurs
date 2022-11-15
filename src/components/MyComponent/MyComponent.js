@@ -6,7 +6,7 @@ class MyComponent extends React.Component {
       super(props)
       this.state = {}
    }       */
-
+   // this.handleChange = this.HandleChange.bind(this);
 
    state = {
       text: '',
