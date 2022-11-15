@@ -21,9 +21,9 @@ const ListItem = ({
 
 ListItem.propTypes = {
    name: PropTypes.string.isRequired,
-   image: PropTypes.string,
+   image: PropTypes.string.isRequired,
    description: PropTypes.string,
-   twitterLink: PropTypes.string,
+   twitterLink: PropTypes.string.isRequired,
 };
 
 ListItem.defaultProps = {
