@@ -28,6 +28,10 @@
   width: 150px;
   border-radius: 50% ;
 }
+.imageNone {
+  @extend .image;
+  background: black;
+}
 .name {
    color: aqua;
    font-weight: 700;
@@ -43,6 +47,6 @@
   padding: 7px 12px;
   font-weight: 500;
   background: none;
-  border: 2px solid #1E58FF;
-  color: #1E58FF;
+  border: 2px solid aqua;
+  color: aqua;
  }
