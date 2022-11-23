@@ -1,5 +1,8 @@
 import React from "react";
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ArticlesViews from "../ArticlesView/ArticlesView";
+import NotesViews from "../NotesView/NotesView";
+import TwittersViews from "../TwittersView/TwittersView";
 import './index.css'
 import danAbramovImage from '../../assets/images/danabramov.jpg';
 import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
@@ -58,9 +61,13 @@ class Root extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>hello</h1>
-            </div>
+            <BrowserRouter>
+                    <Routes>
+                        <Route exact path="/" element={<TwittersViews />} />
+                        <Route path="/articles" element={<ArticlesViews />} />
+                        <Route path="/notes" element={<NotesViews />} />
+                    </Routes>
+            </BrowserRouter>
         )
     }
 };
