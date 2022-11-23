@@ -1,11 +1,10 @@
 import React from "react";
-import ListWrpapper from "./components/ListWrapper/ListWrapper";
-import Form from "./components/Form/Forms";
+
 import './index.css'
-import danAbramovImage from './assets/images/danabramov.jpg';
-import ryanFlorenceImage from './assets/images/ryanflorence.jpg';
-import michaelJacksonImage from './assets/images/michaeljackson.jpg';
-import kentCDoddsImage from './assets/images/kentcdodds.jpg';
+import danAbramovImage from '../../assets/images/danabramov.jpg';
+import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
+import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
+import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
 
 const initialStateItems = [
     {
@@ -35,7 +34,7 @@ const initialStateItems = [
 
 ]
 
-class App extends React.Component {
+class Root extends React.Component {
 
     state = {
         items: [...initialStateItems],
@@ -59,12 +58,11 @@ class App extends React.Component {
 
     render() {
         return (
-            < div >
-                <ListWrpapper items={this.state.items} />
-                <Form submitFn={this.addItem} />
-            </div >
+            <div>
+                <h1>hello</h1>
+            </div>
         )
     }
 };
 
-export default App;
+export default Root;
