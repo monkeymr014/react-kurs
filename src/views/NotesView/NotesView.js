@@ -1,7 +1,7 @@
 import React from "react";
 
 const NotesViews = () => (
-   <p>NotesViews</p>
+   <p>NotesVieffffws</p>
 )
 
 export default NotesViews

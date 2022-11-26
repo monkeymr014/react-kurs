@@ -8,6 +8,7 @@ import danAbramovImage from '../../assets/images/danabramov.jpg';
 import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
 import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
 import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
+import Navigation from "../../components/Navigation/Navigation";
 
 const initialStateItems = [
     {
@@ -62,10 +63,13 @@ class Root extends React.Component {
     render() {
         return (
             <BrowserRouter>
+            <Navigation/>
+            <p>aaa</p>
                     <Routes>
                         <Route exact path="/" element={<TwittersViews />} />
                         <Route path="/articles" element={<ArticlesViews />} />
                         <Route path="/notes" element={<NotesViews />} />
+                        <Route path="/notes/:id" component={NotesViews} />
                     </Routes>
             </BrowserRouter>
         )
