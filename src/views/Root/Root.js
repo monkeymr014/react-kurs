@@ -44,6 +44,7 @@ class Root extends React.Component {
 
     state = {
         items: [...initialStateItems],
+        isModalOpen: false,
     }
 
     addItem = (e) => {
@@ -59,20 +60,36 @@ class Root extends React.Component {
         this.setState(prevState => ({
             items: [...prevState.items, newItem]
         }))
+        
+    
         e.target.reset();
     }
+    openModal = () => (
+        this.setState({
+            isModalOpen:true
+        })
+    )
 
+    closeModal = () => (
+        this.setState({
+            isModalOpen:false
+        })
+    )
     render() {
+        const { isModalOpen } = this.state;
+
         return (
             <BrowserRouter>
-                <Header />
+                <Header openModalFn={this.openModal} />
                 <Routes>
                     <Route exact path="/" element={<TwittersViews />} />
                     <Route path="/articles" element={<ArticlesViews />} />
                     <Route path="/notes" element={<NotesViews />} />
                     <Route path="/notes/:id" component={NotesViews} />
                 </Routes>
-                <Modal/>
+                {isModalOpen && <Modal 
+                closeModalFn={this.closeModal}
+                />}
             </BrowserRouter>
         )
     }
