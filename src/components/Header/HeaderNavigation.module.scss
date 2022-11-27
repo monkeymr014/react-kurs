@@ -1,12 +1,15 @@
 .wrapper{
 
-   display: grid;
-   grid-template-columns: repeat(3,1fr);
+   display: inline-flex;
+   
 }
 
 .navItem{
    list-style: none;
+   padding-right: 50px ;
+   font-size: 26px;
    &Link {
+      
       text-decoration: none;
       color:#818181;
       &Active {

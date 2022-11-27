@@ -1,18 +1,18 @@
 import React from "react";
 import { NavLink } from "react-router-dom"
-import styles from "./Navigation.module.scss"
+import styles from "./HeaderNavigation.module.scss"
 
 
 const classNameFunc = ({ isActive }) => (!isActive ? styles.navItemLink : styles.navItemLinkActive);
 
 
-const Navigation = () => (
+const HeaderNavigation = () => (
    <nav>
       <ul className={styles.wrapper}>
          <li className={styles.navItem}>
             <NavLink
                className={classNameFunc}
-               to="/s">
+               to="/">
                Twiter
             </NavLink>
          </li>
@@ -26,10 +26,9 @@ const Navigation = () => (
          <li className={styles.navItem}>
             <NavLink
                className={classNameFunc}
-
                to="/notes">Notes</NavLink>
          </li>
       </ul>
    </nav>
 )
-export default Navigation
+export default HeaderNavigation
