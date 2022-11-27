@@ -9,6 +9,8 @@ import ryanFlorenceImage from '../../assets/images/ryanflorence.jpg';
 import michaelJacksonImage from '../../assets/images/michaeljackson.jpg';
 import kentCDoddsImage from '../../assets/images/kentcdodds.jpg';
 import Header from "../../components/Header/Header";
+import Modal from "../../components/Modal/Modal";
+
 
 const initialStateItems = [
     {
@@ -70,6 +72,7 @@ class Root extends React.Component {
                     <Route path="/notes" element={<NotesViews />} />
                     <Route path="/notes/:id" component={NotesViews} />
                 </Routes>
+                <Modal/>
             </BrowserRouter>
         )
     }
