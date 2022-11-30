@@ -1,6 +1,5 @@
 .wrapper {
-   width: 100%;
-   margin: 50px auto 100px;;
+   width: 90%;
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -9,10 +8,22 @@
 .wrapper h2 {
    color: aqua;
 }
+.wrapper label {
+   position:static;
+   top: 0;
+   margin: 0;
+   padding: 0;
+}
+.wrapper_radio {
+   display: flex;
+   width: 100%;
+   
+
+}
 
 .form {
    width: 100%;
-   max-width: 350px;
+   max-width: 250px;
    display: flex;
    flex-direction: column;
    justify-content: center;

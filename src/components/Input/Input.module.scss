@@ -18,7 +18,7 @@ label {
    top: 3px;
    left: 0;
    transition: .2s ease-out all;
-   font-size: 16px;
+   font-size: 12px;
 }
    
 input, textarea {
@@ -32,7 +32,7 @@ input, textarea {
    
 textarea {
    resize: none;
-   min-height: 150px;
+   min-height: 100px;
 }
    
 input:focus, textarea:focus {

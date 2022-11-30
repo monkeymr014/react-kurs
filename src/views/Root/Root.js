@@ -44,7 +44,7 @@ class Root extends React.Component {
 
     state = {
         items: [...initialStateItems],
-        isModalOpen: false,
+        isModalOpen: true,
     }
 
     addItem = (e) => {
