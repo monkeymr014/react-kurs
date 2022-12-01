@@ -13,7 +13,7 @@ const types = {
     note: 'note',
 }
 
-const descrition = {
+const description = {
     twitter: 'twitter',
     article: 'article',
     note: 'note',
@@ -26,9 +26,8 @@ class Form extends React.Component {
         title: '',
         link: '',
         image: '',
-        descrition: '',
+        description: '',
     }
-
     handleRadioButtonChange = (type) => {
         this.setState({
             type: type
@@ -47,7 +46,7 @@ class Form extends React.Component {
                 {(contex) => (
                     <div className={styles.wrapper}>
                         <Title>
-                            Add new {descrition[type]}
+                            Add new {description[type]}
                         </Title>
                         <form autoComplete='off'
                             className={styles.form}
@@ -102,9 +101,9 @@ class Form extends React.Component {
                                 : null}
                             <Input 
                                 onChange={this.handleInputChange}
-                                value={this.state.descrition}
-                                name='descrition'
-                                label='Descrition'
+                                value={this.state.description}
+                                name='description'
+                                label='description'
                                 tag='textarea'
                             />
                             <Button>Send</Button>

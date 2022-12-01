@@ -1,7 +1,13 @@
 import React from "react";
+import AppContext from "../../contex";
+import List from "../../components/List/List"
 
 const TwittersViews = () => (
-   <p>TwittersViews</p>
+   <AppContext.Consumer>
+      {(contex) => (  
+      <List items={contex.twitter}/>
+      ) }
+   </AppContext.Consumer>
 )
 
 export default TwittersViews

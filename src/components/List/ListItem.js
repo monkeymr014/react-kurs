@@ -5,34 +5,34 @@ import Button from "../Button/Button";
 import Title from "../Title/Title";
 
 const ListItem = ({
-   name,
+   title,
    image,
    description,
-   twitterLink,
-} ) => {
+   link,
+}) => {
    const ImageTag = image ? 'img' : 'div';
 
    return (
-      <li className={styles.wrapper}>
-         <ImageTag src={image} className={image ? styles.image : styles.imageNone } alt="name" />
+      <li classtitle={styles.wrapper}>
+         {image && <ImageTag src={image} classtitle={image ? styles.image : styles.imageNone} alt="title" />}
          <div>
-            <Title>{name}</Title>
-            <p className={styles.descrition}> {description}</p>
-            <Button href={twitterLink}>twitterLink</Button>
+            <Title>{title}</Title>
+            <p classtitle={styles.description}> {description}</p>
+            {link && <Button href={link}>link</Button>}
          </div>
       </li>
    )
 };
 
 ListItem.propTypes = {
-   name: PropTypes.string.isRequired,
+   title: PropTypes.string.isRequired,
    image: PropTypes.string,
-   description: PropTypes.string,
-   twitterLink: PropTypes.string,
+   description: PropTypes.string.isRequired,
+   link: PropTypes.string,
 };
 
 ListItem.defaultProps = {
    image: null,
-   description: 'brak danych'
+   link: null,
 }
 export default ListItem;
