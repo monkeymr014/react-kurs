@@ -22,13 +22,29 @@ const descrition = {
 class Form extends React.Component {
 
     state = {
-        actionOption: types.twitter
+        actionOption: types.twitter,
+        title: '',
+        link: '',
+        image: '',
+        descrition: '',
     }
 
     handleRadioButtonChange = (type) => {
         this.setState({
             actionOption: type
         })
+    }
+    handleInputChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value,
+        })
+        console.log(`
+           title: ${this.state.title},
+           link: ${this.state.link},
+           image: ${this.state.image},
+           descrition: ${this.state.descrition},
+        `
+        )
     }
     render() {
         const { actionOption } = this.state;
@@ -66,25 +82,33 @@ class Form extends React.Component {
                                 >note
                                 </Radio>
                             </div>
-                            <Input
-                                name='Name'
+                            <Input 
+                                onChange={this.handleInputChange}
+                                value={this.state.title}
+                                name='title'
                                 label={actionOption === 'twitter' ? 'Twitter name' : 'Name'}
                                 maxLength={30}
                             />
                             {actionOption != types.note ?
-                                <Input
+                                <Input 
+                                    onChange={this.handleInputChange}
+                                    value={this.state.link}
                                     name='link'
                                     label={actionOption === 'twitter' ? 'Twitter link' : 'link'}
                                 />
                                 : null
                             }
                             {actionOption === types.twitter ?
-                                <Input
+                                <Input 
+                                    onChange={this.handleInputChange}
+                                    value={this.state.image}
                                     name='image'
                                     label='Image'
                                 />
                                 : null}
-                            <Input
+                            <Input 
+                                onChange={this.handleInputChange}
+                                value={this.state.descrition}
                                 name='descrition'
                                 label='Descrition'
                                 tag='textarea'

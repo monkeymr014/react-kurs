@@ -26,9 +26,8 @@ class Root extends React.Component {
 
     addItem = (e) => {
         e.preventDefault();
-        console.log('aaa')
 
-       /*  const newItem = {
+        const newItem = {
             name: e.target[0].value,
             twitterLink: e.target[1].value,
             image: e.target[2].value,
@@ -40,7 +39,7 @@ class Root extends React.Component {
         }))
 
 
-        e.target.reset(); */
+        e.target.reset(); 
     }
     openModal = () => (
         this.setState({
