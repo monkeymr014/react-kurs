@@ -22,7 +22,7 @@ const descrition = {
 class Form extends React.Component {
 
     state = {
-        actionOption: types.twitter,
+        type: types.twitter,
         title: '',
         link: '',
         image: '',
@@ -31,7 +31,7 @@ class Form extends React.Component {
 
     handleRadioButtonChange = (type) => {
         this.setState({
-            actionOption: type
+            type: type
         })
     }
     handleInputChange = e => {
@@ -47,13 +47,13 @@ class Form extends React.Component {
         )
     }
     render() {
-        const { actionOption } = this.state;
+        const { type } = this.state;
         return (
             <AppContext.Consumer>
                 {(contex) => (
                     <div className={styles.wrapper}>
                         <Title>
-                            Add new {descrition[actionOption]}
+                            Add new {descrition[type]}
                         </Title>
                         <form autoComplete='off'
                             className={styles.form}
@@ -63,21 +63,21 @@ class Form extends React.Component {
                                 <Radio
                                     id={types.twitter}
                                     type="radio"
-                                    checked={actionOption === types.twitter}
+                                    checked={type === types.twitter}
                                     changeFn={() => this.handleRadioButtonChange(types.twitter)}
                                 >twitter
                                 </Radio>
                                 <Radio
                                     id={types.article}
                                     type="radio"
-                                    checked={actionOption === types.article}
+                                    checked={type === types.article}
                                     changeFn={() => this.handleRadioButtonChange(types.article)}
                                 >article
                                 </Radio>
                                 <Radio
                                     id={types.note}
                                     type="radio"
-                                    checked={actionOption === types.note}
+                                    checked={type === types.note}
                                     changeFn={() => this.handleRadioButtonChange(types.note)}
                                 >note
                                 </Radio>
@@ -86,19 +86,19 @@ class Form extends React.Component {
                                 onChange={this.handleInputChange}
                                 value={this.state.title}
                                 name='title'
-                                label={actionOption === 'twitter' ? 'Twitter name' : 'Name'}
+                                label={type === 'twitter' ? 'Twitter name' : 'Name'}
                                 maxLength={30}
                             />
-                            {actionOption != types.note ?
+                            {type != types.note ?
                                 <Input 
                                     onChange={this.handleInputChange}
                                     value={this.state.link}
                                     name='link'
-                                    label={actionOption === 'twitter' ? 'Twitter link' : 'link'}
+                                    label={type === 'twitter' ? 'Twitter link' : 'link'}
                                 />
                                 : null
                             }
-                            {actionOption === types.twitter ?
+                            {type === types.twitter ?
                                 <Input 
                                     onChange={this.handleInputChange}
                                     value={this.state.image}
