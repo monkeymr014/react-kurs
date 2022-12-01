@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import AppContext from "../../contex";
 import ArticlesViews from "../ArticlesView/ArticlesView";
 import NotesViews from "../NotesView/NotesView";
 import TwittersViews from "../TwittersView/TwittersView";
@@ -44,7 +45,8 @@ class Root extends React.Component {
 
     state = {
         items: [...initialStateItems],
-        isModalOpen: true,
+        isModalOpen: false,
+        name: 'Michal'
     }
 
     addItem = (e) => {
@@ -60,19 +62,19 @@ class Root extends React.Component {
         this.setState(prevState => ({
             items: [...prevState.items, newItem]
         }))
-        
-    
+
+
         e.target.reset();
     }
     openModal = () => (
         this.setState({
-            isModalOpen:true
+            isModalOpen: true
         })
     )
 
     closeModal = () => (
         this.setState({
-            isModalOpen:false
+            isModalOpen: false
         })
     )
     render() {
@@ -80,16 +82,18 @@ class Root extends React.Component {
 
         return (
             <BrowserRouter>
-                <Header openModalFn={this.openModal} />
-                <Routes>
-                    <Route exact path="/" element={<TwittersViews />} />
-                    <Route path="/articles" element={<ArticlesViews />} />
-                    <Route path="/notes" element={<NotesViews />} />
-                    <Route path="/notes/:id" component={NotesViews} />
-                </Routes>
-                {isModalOpen && <Modal 
-                closeModalFn={this.closeModal}
-                />}
+                <AppContext.Provider value={this.state.name}>
+                    <Header openModalFn={this.openModal} />
+                    <Routes>
+                        <Route exact path="/" element={<TwittersViews />} />
+                        <Route path="/articles" element={<ArticlesViews />} />
+                        <Route path="/notes" element={<NotesViews />} />
+                        <Route path="/notes/:id" component={NotesViews} />
+                    </Routes>
+                    {isModalOpen && <Modal
+                        closeModalFn={this.closeModal}
+                    />}
+                </AppContext.Provider>
             </BrowserRouter>
         )
     }

@@ -1,7 +1,14 @@
 import React from "react";
+import AppContext from "../../contex";
 
 const ArticlesViews = () => (
-   <p>ArticlesVisssews</p>
+   <AppContext.Consumer>
+      {(contex) => (
+         
+      <p>{contex}</p>
+      ) }
+   </AppContext.Consumer>
+
 )
 
 export default ArticlesViews

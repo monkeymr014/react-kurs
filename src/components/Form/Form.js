@@ -18,8 +18,7 @@ const descrition = {
 }
 
 class Form extends React.Component {
-
-
+    
     state = {
         actionOption: types.twitter
     }
