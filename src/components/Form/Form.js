@@ -4,6 +4,8 @@ import Input from '../Input/Input';
 import Button from '../Button/Button';
 import Title from '../Title/Title';
 import Radio from '../Radio/Radio';
+import AppContext from "../../contex";
+
 
 const types = {
     twitter: 'twitter',
@@ -18,7 +20,7 @@ const descrition = {
 }
 
 class Form extends React.Component {
-    
+
     state = {
         actionOption: types.twitter
     }
@@ -31,63 +33,67 @@ class Form extends React.Component {
     render() {
         const { actionOption } = this.state;
         return (
-            <div className={styles.wrapper}>
-                <Title>
-                    Add new {descrition[actionOption]}
-                </Title>
-                <form autoComplete='off'
-                    className={styles.form}
-                    onSubmit={this.props.submitFn}
-                >
-                    <div className={styles.wrapper_radio}>
-                        <Radio
-                            id={types.twitter}
-                            type="radio"
-                            checked={actionOption === types.twitter}
-                            changeFn={() => this.handleRadioButtonChange(types.twitter)}
-                        >twitter
-                        </Radio>
-                        <Radio
-                            id={types.article}
-                            type="radio"
-                            checked={actionOption === types.article}
-                            changeFn={() => this.handleRadioButtonChange(types.article)}
-                        >article
-                        </Radio>
-                        <Radio
-                            id={types.note}
-                            type="radio"
-                            checked={actionOption === types.note}
-                            changeFn={() => this.handleRadioButtonChange(types.note)}
-                        >note
-                        </Radio>
+            <AppContext.Consumer>
+                {(contex) => (
+                    <div className={styles.wrapper}>
+                        <Title>
+                            Add new {descrition[actionOption]}
+                        </Title>
+                        <form autoComplete='off'
+                            className={styles.form}
+                            onSubmit={contex.addItem}
+                        >
+                            <div className={styles.wrapper_radio}>
+                                <Radio
+                                    id={types.twitter}
+                                    type="radio"
+                                    checked={actionOption === types.twitter}
+                                    changeFn={() => this.handleRadioButtonChange(types.twitter)}
+                                >twitter
+                                </Radio>
+                                <Radio
+                                    id={types.article}
+                                    type="radio"
+                                    checked={actionOption === types.article}
+                                    changeFn={() => this.handleRadioButtonChange(types.article)}
+                                >article
+                                </Radio>
+                                <Radio
+                                    id={types.note}
+                                    type="radio"
+                                    checked={actionOption === types.note}
+                                    changeFn={() => this.handleRadioButtonChange(types.note)}
+                                >note
+                                </Radio>
+                            </div>
+                            <Input
+                                name='Name'
+                                label={actionOption === 'twitter' ? 'Twitter name' : 'Name'}
+                                maxLength={30}
+                            />
+                            {actionOption != types.note ?
+                                <Input
+                                    name='link'
+                                    label={actionOption === 'twitter' ? 'Twitter link' : 'link'}
+                                />
+                                : null
+                            }
+                            {actionOption === types.twitter ?
+                                <Input
+                                    name='image'
+                                    label='Image'
+                                />
+                                : null}
+                            <Input
+                                name='descrition'
+                                label='Descrition'
+                                tag='textarea'
+                            />
+                            <Button>Send</Button>
+                        </form>
                     </div>
-                    <Input
-                        name='Name'
-                        label={actionOption === 'twitter' ? 'Twitter name' : 'Name'}
-                        maxLength={30}
-                    />
-                    {actionOption != types.note ?
-                        <Input
-                            name='link'
-                            label={actionOption === 'twitter' ? 'Twitter link' : 'link'}
-                        />
-                        : null
-                    }
-                    {actionOption === types.twitter ?
-                        <Input
-                            name='image'
-                            label='Image'
-                        />
-                        : null}
-                    <Input
-                        name='descrition'
-                        label='Descrition'
-                        tag='textarea'
-                    />
-                    <Button>Send</Button>
-                </form>
-            </div>
+                )}
+            </AppContext.Consumer>
         )
     }
 }
