@@ -21,6 +21,7 @@ class Root extends React.Component {
         note: [],
         isModalOpen: false,
     }
+    
 
     addItem = (e, newItem) => {
         e.preventDefault();
